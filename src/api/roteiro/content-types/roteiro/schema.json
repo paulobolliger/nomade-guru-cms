@@ -15,8 +15,13 @@
       "type": "string",
       "required": true
     },
-    "DescricaoDetalhada": {
+    "Introducao": {
       "type": "blocks"
+    },
+    "PlanoDiario": {
+      "type": "component",
+      "component": "plano-diario.plano-diario",
+      "repeatable": true
     },
     "GaleriaDeFotos": {
       "type": "media",
@@ -33,6 +38,23 @@
     },
     "Duracao": {
       "type": "string"
+    },
+    "Estilo_de_Viagem": {
+      "type": "enumeration",
+      "enum": [
+        "Luxo",
+        "Aventura",
+        "Cultural",
+        "Romantico",
+        "Familia",
+        "Festas Tradicionais",
+        "Esportes"
+      ]
+    },
+    "SEO": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }

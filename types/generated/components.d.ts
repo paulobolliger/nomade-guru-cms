@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface PlanoDiarioPlanoDiario extends Struct.ComponentSchema {
+  collectionName: 'components_plano_diario_plano_diarios';
+  info: {
+    displayName: 'plano-diario';
+    icon: 'plane';
+  };
+  attributes: {
+    Descricao_do_Dia: Schema.Attribute.Blocks;
+    Numero_do_Dia: Schema.Attribute.Integer;
+    Titulo_do_Dia: Schema.Attribute.String;
+  };
+}
+
 export interface SharedOpenGraph extends Struct.ComponentSchema {
   collectionName: 'components_shared_open_graphs';
   info: {
@@ -18,8 +31,6 @@ export interface SharedOpenGraph extends Struct.ComponentSchema {
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 70;
       }>;
-    ogType: Schema.Attribute.String;
-    ogUrl: Schema.Attribute.String;
   };
 }
 
@@ -30,8 +41,6 @@ export interface SharedSeo extends Struct.ComponentSchema {
     icon: 'search';
   };
   attributes: {
-    canonicalURL: Schema.Attribute.String;
-    keywords: Schema.Attribute.Text;
     metaDescription: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
@@ -39,21 +48,19 @@ export interface SharedSeo extends Struct.ComponentSchema {
         minLength: 50;
       }>;
     metaImage: Schema.Attribute.Media<'images'>;
-    metaRobots: Schema.Attribute.String;
     metaTitle: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 60;
       }>;
-    metaViewport: Schema.Attribute.String;
     openGraph: Schema.Attribute.Component<'shared.open-graph', false>;
-    structuredData: Schema.Attribute.JSON;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'plano-diario.plano-diario': PlanoDiarioPlanoDiario;
       'shared.open-graph': SharedOpenGraph;
       'shared.seo': SharedSeo;
     }

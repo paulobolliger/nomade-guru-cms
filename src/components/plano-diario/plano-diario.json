@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_plano_diario_plano_diarios",
+  "info": {
+    "displayName": "plano-diario",
+    "icon": "plane"
+  },
+  "options": {},
+  "attributes": {
+    "Numero_do_Dia": {
+      "type": "integer"
+    },
+    "Titulo_do_Dia": {
+      "type": "string"
+    },
+    "Descricao_do_Dia": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

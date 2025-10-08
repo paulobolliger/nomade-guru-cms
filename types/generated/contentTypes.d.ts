@@ -530,20 +530,33 @@ export interface ApiRoteiroRoteiro extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    DescricaoDetalhada: Schema.Attribute.Blocks;
     Duracao: Schema.Attribute.String;
+    Estilo_de_Viagem: Schema.Attribute.Enumeration<
+      [
+        'Luxo',
+        'Aventura',
+        'Cultural',
+        'Romantico',
+        'Familia',
+        'Festas Tradicionais',
+        'Esportes',
+      ]
+    >;
     GaleriaDeFotos: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    Introducao: Schema.Attribute.Blocks;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::roteiro.roteiro'
     > &
       Schema.Attribute.Private;
+    PlanoDiario: Schema.Attribute.Component<'plano-diario.plano-diario', true>;
     Preco: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'shared.seo', false>;
     Titulo: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
