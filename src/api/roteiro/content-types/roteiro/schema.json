@@ -15,8 +15,33 @@
       "type": "string",
       "required": true
     },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Titulo"
+    },
     "Introducao": {
       "type": "text"
+    },
+    "Tags": {
+      "type": "string"
+    },
+    "Destino": {
+      "type": "string"
+    },
+    "Dificuldade": {
+      "type": "enumeration",
+      "enum": [
+        "Tranquilo",
+        "Moderado",
+        "Aventureiro",
+        "Desafiador"
+      ]
+    },
+    "MelhorEpoca": {
+      "type": "string"
+    },
+    "Destaque": {
+      "type": "boolean"
     },
     "PlanoDiario": {
       "type": "component",

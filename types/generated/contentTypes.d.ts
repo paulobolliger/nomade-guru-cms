@@ -631,6 +631,11 @@ export interface ApiRoteiroRoteiro extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Destaque: Schema.Attribute.Boolean;
+    Destino: Schema.Attribute.String;
+    Dificuldade: Schema.Attribute.Enumeration<
+      ['Tranquilo', 'Moderado', 'Aventureiro', 'Desafiador']
+    >;
     Duracao: Schema.Attribute.String;
     Estilo_de_Viagem: Schema.Attribute.Enumeration<
       [
@@ -654,10 +659,13 @@ export interface ApiRoteiroRoteiro extends Struct.CollectionTypeSchema {
       'api::roteiro.roteiro'
     > &
       Schema.Attribute.Private;
+    MelhorEpoca: Schema.Attribute.String;
     PlanoDiario: Schema.Attribute.Component<'plano-diario.plano-diario', true>;
     Preco: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
     SEO: Schema.Attribute.Component<'shared.seo', false>;
+    Slug: Schema.Attribute.UID<'Titulo'>;
+    Tags: Schema.Attribute.String;
     Titulo: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
