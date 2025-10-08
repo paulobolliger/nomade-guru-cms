@@ -7,7 +7,7 @@ export interface PlanoDiarioPlanoDiario extends Struct.ComponentSchema {
     icon: 'plane';
   };
   attributes: {
-    Descricao_do_Dia: Schema.Attribute.Blocks;
+    Descricao_do_Dia: Schema.Attribute.Text;
     Numero_do_Dia: Schema.Attribute.Integer;
     Titulo_do_Dia: Schema.Attribute.String;
   };

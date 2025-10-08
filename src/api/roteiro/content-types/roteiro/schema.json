@@ -16,7 +16,7 @@
       "required": true
     },
     "Introducao": {
-      "type": "blocks"
+      "type": "text"
     },
     "PlanoDiario": {
       "type": "component",
@@ -55,6 +55,9 @@
       "type": "component",
       "component": "shared.seo",
       "repeatable": false
+    },
+    "ChamadaParaAcao": {
+      "type": "string"
     }
   }
 }

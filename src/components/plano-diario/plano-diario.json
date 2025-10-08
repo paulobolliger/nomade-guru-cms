@@ -13,7 +13,7 @@
       "type": "string"
     },
     "Descricao_do_Dia": {
-      "type": "blocks"
+      "type": "text"
     }
   },
   "config": {}
