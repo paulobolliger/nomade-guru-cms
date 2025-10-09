@@ -83,6 +83,12 @@
     },
     "ChamadaParaAcao": {
       "type": "string"
+    },
+    "depoimento": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::depoimento.depoimento",
+      "mappedBy": "roteiro_relacionado"
     }
   }
 }

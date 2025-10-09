@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "depoimentos",
+  "info": {
+    "singularName": "depoimento",
+    "pluralName": "depoimentos",
+    "displayName": "Depoimento"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "NomeCliente": {
+      "type": "string"
+    },
+    "Localizacao": {
+      "type": "string"
+    },
+    "TextoDepoimento": {
+      "type": "text"
+    },
+    "FotoCliente": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Avaliacao": {
+      "type": "integer",
+      "default": 5
+    },
+    "roteiro_relacionado": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::roteiro.roteiro",
+      "inversedBy": "depoimento"
+    }
+  }
+}

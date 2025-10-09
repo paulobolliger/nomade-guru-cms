@@ -616,6 +616,44 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDepoimentoDepoimento extends Struct.CollectionTypeSchema {
+  collectionName: 'depoimentos';
+  info: {
+    displayName: 'Depoimento';
+    pluralName: 'depoimentos';
+    singularName: 'depoimento';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Avaliacao: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<5>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    FotoCliente: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    Localizacao: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::depoimento.depoimento'
+    > &
+      Schema.Attribute.Private;
+    NomeCliente: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    roteiro_relacionado: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::roteiro.roteiro'
+    >;
+    TextoDepoimento: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiRoteiroRoteiro extends Struct.CollectionTypeSchema {
   collectionName: 'roteiros';
   info: {
@@ -631,6 +669,10 @@ export interface ApiRoteiroRoteiro extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    depoimento: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::depoimento.depoimento'
+    >;
     Destaque: Schema.Attribute.Boolean;
     Destino: Schema.Attribute.String;
     Dificuldade: Schema.Attribute.Enumeration<
@@ -1343,6 +1385,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::blog.blog': ApiBlogBlog;
+      'api::depoimento.depoimento': ApiDepoimentoDepoimento;
       'api::roteiro.roteiro': ApiRoteiroRoteiro;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
